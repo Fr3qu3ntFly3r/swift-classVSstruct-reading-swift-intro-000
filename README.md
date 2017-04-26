@@ -38,16 +38,18 @@ let fred = Giant(name: "Fred", weight: 340.0, homePlanet: "Earth")
 
 Will these three lines of code run? If not, why not?
 
+
+
 ```swift
 fred.name = "Brick"
 fred.weight = 999.2
 fred.homePlanet = "Mars"
 ```
-
+Not, because  homePlanet is a Constant
 ### Question 2
 
 Can you fix the class definition above so that it _does_ work?
-
+change let to var for homePlanet
 ### Question 3
 
 Take a look at this struct that represents an alien:
@@ -73,10 +75,12 @@ bilbo.name = "Jake"
 bilbo.height = 1.42
 bilbo.homePlanet = "Saturn"
 ```
-
+No, because bilbo is a constant
 ### Question 4
 
 Can you change the declaration of `bilbo` so that the above three lines of code _do_ work?
+
+change let to var for bilbo
 
 ### Question 5
 
@@ -90,6 +94,8 @@ jason.name = "Jason"
 
 What will the value of `edgar.name` be after those three lines of code are run? What will the value of `jason.name` be? Why?
 
+edgar.name = "Jason", because Giant is a class (reference type)
+
 ### Question 6
 
 Given this bit of code that uses the `Alien` struct:
@@ -101,6 +107,8 @@ charlesFromJupiter.homePlanet = "Jupiter"
 ```
 
 What will the value of `charles.homePlanet` be after the above code run? What about the value of `charlesFromJupiter.homePlanet`? Why?
+charles.homePlanet = Pluto
+because Alien is a struct (value type)
 
 ### Question 7
 
@@ -122,10 +130,13 @@ struct BankAccount {
 ```
 
 Does this code work? Why or why not?
+No, because the methods are not mutating.
 
 ### Question 8
 
 Can you fix the `BankAccount` struct so it _does_ work?
+
+add mutating before both of the func-s
 
 ### Question 9
 
@@ -138,6 +149,10 @@ joeAccount.withdraw(50.0)
 ```
 
 What will the value of `joeAccount.balance` be after the above code runs? What about the value of `joeOtherAccount.balance`? Why?
+
+joeAccount.balance = 100.0
+joeOtherAccount = 50.0
+bankAccount is a struct (value type)
 
 ### Question 10
 
@@ -168,5 +183,7 @@ library2.add(track: "Come As You Are")
 ```
 
 After this code runs, what are the contents of `library1.tracks`? What about the contents of `library2.tracks`? Why?
+library2.tracks == library1.tracks
+Because MusicLibrary is a class (reference type)
 
 <a href='https://learn.co/lessons/ClassesVsStructs' data-visibility='hidden'>View this lesson on Learn.co</a>
